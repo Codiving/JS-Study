@@ -48,3 +48,31 @@ eat(
   food => brushTeeth(food, console.log, console.error),
   console.error
 );
+const washingFace = () => {
+  // ... 있다 치고
+};
+
+// callback 지옥 코드
+eat(
+  "밥먹기",
+  () => {
+    brushTeeth(
+      "양차히기",
+      () => {
+        washingFace(
+          "세수하기",
+          () => {},
+          () => {
+            console.log("에러 처리");
+          }
+        );
+      },
+      () => {
+        console.log("에러 처리");
+      }
+    );
+  },
+  () => {
+    console.log("에러 처리");
+  }
+);
